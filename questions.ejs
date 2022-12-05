@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Question List</title>
+    <style>
+        table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+    <h1>Question list</h1>
+    <table>
+        <tr>
+            <th>
+                Sr No.
+            </th>
+            <th>
+                Question
+            </th>
+            <th>
+                statements
+            </th>
+            
+            <th>
+                options
+            </th>
+            <th>
+                correct
+            </th>
+            <th>
+                edit
+            </th>
+            <th>
+                delete
+            </th>
+            
+        </tr>
+        <% if(questions.length>0){ %>
+           
+           <% for(var i=0;i<questions.length;i++){ %>
+            <tr>
+                <td><%= questions[i].qID %></td>
+                <td><%= questions[i].Question  %></td>
+                
+                <td>
+                    <p> <%= questions[i].Statement1 %></p>
+                    <p><%= questions[i].Statement2 %></p>
+                    <p><%= questions[i].Statement3 %></p>
+                    <p><%= questions[i].Statement4 %></p></td>
+                
+                <td><p><%= questions[i].Option1 %></p>
+                    <p><%= questions[i].Option2 %></p>
+                    <p><%= questions[i].Option3 %></p>
+                    <p><%= questions[i].Option4 %></p></td>
+                
+                <td><%= questions[i].Correct %></td>
+                <td>
+                    <a href="/update?id=<%- questions[i].qID %>">Update</a>
+                </td>
+                <td><a href="/delete?id=<%- questions[i].qID %>">delete</a>
+                    
+                </td>
+            </tr>
+   
+            <% } %>
+       
+            <% }else{ %>
+                <h1>Data not there</h1>
+       
+                <% }%>
+        
+    </table>
+    
+</body>
+</html>
